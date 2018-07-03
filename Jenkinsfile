@@ -47,9 +47,6 @@ pipeline {
 
             sh "jx step git credentials"
 
-            // login so we can push docker images
-            sh "docker-credential-ecr-login"
-
             // so we can retrieve the version in later steps
             sh "echo \$(jx-release-version) > VERSION"
             sh "mvn versions:set -DnewVersion=\$(cat VERSION)"
